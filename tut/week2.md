@@ -20,7 +20,7 @@
 (Same as "module03b - Networking Basics" on LEARN)
 
 1. SSH into eceubuntu1 and run `nc -l 10000`. (Try adding the last three digits
-   of your student number to avoid port conflicts) conflicts)
+   of your student number to avoid port conflicts)
 2. SSH into eceubuntu4 and run `nc eceubuntu1 10000`.
 3. On eceubuntu1 enter `Hello` into the terminal, and press ENTER.
 4. On eceubuntu4 observe the output, then enter `Hi` into the terminal and press
@@ -108,3 +108,21 @@ improve latency.
 
 M. van Steen and A.S. Tanenbaum, Distributed Systems, 3rd ed.,
 distributed-systems.net, 2017.
+
+## Afterthoughts
+
+The question, "How many sockets are created by the client? How many by the
+server?" turns out to be quite interesting.
+
+On the client side, there is only one socket, evidenced by the exact one `new
+Socket()`.
+
+However, on the server side, there are two sockets. One is `ServerSocket` which
+is primarily used for the `bind` operation. Then upon `accept()`, the server
+creates a *new* socket (`csock` in our code). This time, the new socket has not
+only the same server's ip and port as `ServerSocket`, but also the client's ip
+and port (!). (It might be better called `Connection` since both endpoints are
+included)
+
+More details can be found in
+https://docs.oracle.com/javase/tutorial/networking/sockets/clientServer.html
