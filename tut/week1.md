@@ -215,3 +215,5 @@ To hop between ecetelsa servers for indefinite times, we need to add
 
 Other ece servers can be configured in a similar way. See
 https://ece.uwaterloo.ca/Nexus/arbeau/servers/ for possible servers.
+
+It seems administrator privileges is needed if you are using *PuTTY* on Windows.
