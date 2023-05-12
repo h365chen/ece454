@@ -83,7 +83,7 @@ Clean up old ones.
 rm id_rsa id_rsa.pub
 ```
 
-Log into ecetelsa. Do you need the pass phrase? How many times you need it?
+Log into ecetelsa. Do you need the pass phrase? How many times do you need it?
 
 ```sh
 ssh ecetesla
@@ -200,3 +200,18 @@ You can find more details here
 Can you delete `id_rsa2` and `id_rsa2.pub` file after suceed login?
 
 Which one do you prefer, empty or non-empty pass phrase?
+
+## Afterthoughts
+
+It's easy to forget to upload `id_rsa2.pub` to `authorized_keys`.
+
+Move the line `AddKeysToAgent yes` to the `ecetelsa` configuration seems to
+work.
+
+Move the line `ForwardAgent yes` to the `eceterm` configuration does not work.
+
+To hop between ecetelsa servers for indefinite times, we need to add
+`ForwardAgent yes` into `~/.ssh/config` on ece servers.
+
+Other ece servers can be configured in a similar way. See
+https://ece.uwaterloo.ca/Nexus/arbeau/servers/ for possible servers.
