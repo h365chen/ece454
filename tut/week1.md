@@ -11,7 +11,7 @@
 Generate private/public key pairs. We use `-t` to specify the algorithm. (You
 can use *PuTTY* https://putty.org on Windows)
 
-```sh
+```bash
 ssh-keygen -t rsa
 ```
 
@@ -20,13 +20,13 @@ Let's use *empty* phrase first
 Add `id_rsa.pub` to `~/.ssh/authorized_keys` on remote servers. You can
 manually copy-paste it or use the following:
 
-```sh
+```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub yourid@eceterm.uwaterloo.ca
 ```
 
 Now you should be able to login to `eceterm` without the password.
 
-```sh
+```bash
 ssh yourid@eceterm.uwaterloo.ca
 ```
 
@@ -41,7 +41,7 @@ the same as the one on eceterm. (why?)
 Quit then create or add the following to the `~/.ssh/config` file on your
 laptop.
 
-```sh
+```bash
 Host eceterm eceterm1 eceterm2 eceterm3
     HostName %h.uwaterloo.ca
     User yourid
@@ -56,7 +56,7 @@ Host ecetesla ecetesla0 ecetesla1 ecetesla2 ecetesla3 ecetesla4
 
 Then retry.
 
-```sh
+```bash
 ssh ecetesla
 ```
 
@@ -65,27 +65,27 @@ ssh ecetesla
 Now let's create another private/public key pair `id_rsa2`, but this time we set
 a pass phrase.
 
-```sh
+```bash
 ssh-keygen -t rsa  # name it as ~/.ssh/id_rsa2
 ```
 
 Log into eceterm and remove the existing one in the `~/.ssh/authorized_keys`,
 then add `id_rsa2.pub` to it.
 
-```sh
+```bash
 ssh eceterm
 vi ~/.ssh/authorized_keys
 ```
 
 Clean up old ones.
 
-```sh
+```bash
 rm id_rsa id_rsa.pub
 ```
 
 Log into ecetelsa. Do you need the pass phrase? How many times do you need it?
 
-```sh
+```bash
 ssh ecetesla
 ```
 
@@ -93,7 +93,7 @@ ssh ecetesla
 
 ssh-agent can help here.
 
-```sh
+```bash
 ssh-add id_rsa2
 ```
 
@@ -117,13 +117,13 @@ Host ecetesla ecetesla0 ecetesla1 ecetesla2 ecetesla3 ecetesla4
 
 Then log into ecetesla.
 
-```sh
+```bash
 ssh ecetesla
 ```
 
 `exit` ecetesla, on your laptop, you can check the added keys using
 
-```sh
+```bash
 ssh-add -L
 ```
 
@@ -138,7 +138,7 @@ configuration?*
 Now, log into one ecetesla server, then try to log into another ecetelsa
 server from there.
 
-```sh
+```bash
 ssh ecetesla0
 ssh ecetesla1  # on ecetesla0
 ```
@@ -147,7 +147,7 @@ Do you need a password?
 
 Let's reset and clean the keys in the agent.
 
-```sh
+```bash
 ssh-add -D
 ```
 
@@ -180,7 +180,7 @@ configuration?*
 
 This time we should be able to hop between ecetelsa servers
 
-```sh
+```bash
 ssh ecetesla0
 ssh ecetesla1  # on ecetesla0
 ssh ecetesla4  # on ecetesla1, can you do this without the password?
