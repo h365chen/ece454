@@ -118,7 +118,7 @@ On the client side, there is only one socket, evidenced by the exact one `new
 Socket()`.
 
 However, on the server side, there are two sockets. One is `ServerSocket` which
-is primarily used for the `bind` operation. Then upon `accept()`, the server
+is primarily used for the *bind* operation. Then upon `accept()`, the server
 creates a *new* socket (`csock` in our code). This time, the new socket has not
 only the same server's ip and port as `ServerSocket`, but also the client's ip
 and port (!). (It might be better called `Connection` since both endpoints are
