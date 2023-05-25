@@ -147,7 +147,7 @@ I refer to the version 0.13.0 here since that's the version used in the course.
 
 You might want to change the `max_length` if the data was large
 
-[`TFramedTransport.java::DEFAULT_MAX_LENGTH`](https://github.com/apache/thrift/blob/0.13.0/lib/java/src/org/apache/thrift/transport/TFramedTransport.javahttps://github.com/apache/thrift/blob/0.13.0/lib/java/src/org/apache/thrift/transport/TFramedTransport.java#L30)
+[`TFramedTransport.java::DEFAULT_MAX_LENGTH`](https://github.com/apache/thrift/blob/0.13.0/lib/java/src/org/apache/thrift/transport/TFramedTransport.java#L30)
 
 ---
 
