@@ -5,6 +5,7 @@ ECE 454 notes
 To see slides, do
 
 ```bash
+cd tut/
 python -m http.server 8080
 ```
 
