@@ -41,8 +41,7 @@ Let's use
 - $D$ to denote the processing delay in the RPC service handler for one
   request
 
-Under both cases, the bottleneck is the client. The latency would be $2L + D$
-and throughput is $\frac{1}{2L+D}$.
+Under both cases, the bottleneck is the client. The latency would be $2L + D$ and throughput is $\frac{1}{2L+D}$.
 
 ---
 
@@ -67,7 +66,7 @@ Server's throughput $\le \frac{C}{D}$
 
 Therefore, the upper bound of throughput would be $min(\frac{T}{2L+D}, \frac{1}{D})$ if the server is single-threaded, or $min(\frac{T}{2L+D}, \frac{4}{D})$ if it has four cores.
 
-*Think: How many threads are needed to fully utilize the server if we consider $L \eq 0$?*
+*Think: How many threads are needed to fully utilize the server if we consider L = 0?*
 
 ---
 
@@ -102,4 +101,4 @@ Given the server's peak throughput is $5*\frac{4}{D} = \frac{20}{D}$
 
 Finally, the peak throughput is $min(\frac{5T}{18L+5D}, \frac{20}{D})$
 
-*Think: How many threads are needed to fully utilize the server if we consider $L=0$?*
+*Think: How many threads are needed to fully utilize the server if we consider L = 0?*
