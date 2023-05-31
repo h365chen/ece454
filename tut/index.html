@@ -19,13 +19,13 @@
             font-family: 'Yanone Kaffeesatz';
             font-weight: normal;
         }
-
+/*
         code {
             background: #e7e8e2;
-            border-radius: 1px;
+            border-radius: 0px;
             line-height: 1.5em;
         }
-
+ */
         .inverse {
             background: #272822;
             color: #777872;
@@ -45,18 +45,27 @@
 </head>
 
 <body>
-    <textarea id="source">
-        </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-        remark.macros.width = function(width) {
+    <textarea id="source"></textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+        // Setup MathJax
+        MathJax.Hub.Config({
+            tex2jax: {
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        });
+
+        MathJax.Hub.Configured();
+
+        remark.macros.width = function (width) {
             var url = this;
             return '<img style="width:' + width + '" src="' + url + '" />';
         }
 
         var slideshow = remark.create({
-            sourceUrl: 'week3.md'
+            sourceUrl: 'week4.md'
         });
     </script>
 </body>
