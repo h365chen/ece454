@@ -48,7 +48,7 @@ and throughput is $\frac{1}{2L+D}$.
 
 ## Question 2
 
-If the client uses $T > 1$ threads, assuming each thread executes the same
+If the client uses $T \gt 1$ threads, assuming each thread executes the same
 number of requests per second (i.e., the workload is spread evenly across the
 client threads), how does your answer to question 1 change?
 
@@ -65,12 +65,9 @@ $\le \frac{1}{2L+D}$)
 
 Server's throughput $\le \frac{C}{D}$
 
-Therefore, the upper bound of throughput would be $min(\frac{T}{2L+D},
-\frac{1}{D})$ if the server is single-threaded, or $min(\frac{T}{2L+D},
-\frac{4}{D})$ if it has four cores.
+Therefore, the upper bound of throughput would be $min(\frac{T}{2L+D}, \frac{1}{D})$ if the server is single-threaded, or $min(\frac{T}{2L+D}, \frac{4}{D})$ if it has four cores.
 
-*Think: How many threads ($T$) are needed to fully utilize the server if we
-consider $L=0$?*
+*Think: How many threads are needed to fully utilize the server if we consider $L \eq 0$?*
 
 ---
 
@@ -91,20 +88,18 @@ The minimum latency is $min(2L+D, 4L+D) = 2L+D$
 
 Peak throughput of each thread:
 
-- If request is processed at FENode $ \le \frac{1}{2L+D} $
-- If request is processed at BENode $ \le \frac{1}{4L+D} $
+- If request is processed at FENode $\le \frac{1}{2L+D}$
+- If request is processed at BENode $\le \frac{1}{4L+D}$
 
 Let's assume each server takes $\frac{1}{5}$ of the requests at peak
 throughput
 
-Then, the peak throughput of a client thread is $ \frac{1}{
-\frac{1}{5}(2L+D) + \frac{4}{5}*(4L+D) } = \frac{5}{18L+5D} $
+Then, the peak throughput of a client thread is $\frac{1}{\frac{1}{5}(2L+D) + \frac{4}{5}*(4L+D)} = \frac{5}{18L+5D}$
 
-Therefore, the peak throughput of $T$ threads will be $ \frac{5T}{18L+5D} $
+Therefore, the peak throughput of $T$ threads will be $\frac{5T}{18L+5D}$
 
-Given the server's peak throughput is $ 5*\frac{4}{D} = \frac{20}{D} $
+Given the server's peak throughput is $5*\frac{4}{D} = \frac{20}{D}$
 
-Finally, the peak throughput is $min(\frac{5T}{18L+5D}, \frac{20}{D}) $
+Finally, the peak throughput is $min(\frac{5T}{18L+5D}, \frac{20}{D})$
 
-*Think: How many threads ($T$) are needed to fully utilize the server if we
-consider $L=0$?*
+*Think: How many threads are needed to fully utilize the server if we consider $L=0$?*
