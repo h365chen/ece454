@@ -19,13 +19,12 @@
             font-family: 'Yanone Kaffeesatz';
             font-weight: normal;
         }
-/*
         code {
             background: #e7e8e2;
             border-radius: 0px;
             line-height: 1.5em;
         }
- */
+
         .inverse {
             background: #272822;
             color: #777872;
@@ -53,7 +52,8 @@
         // Setup MathJax
         MathJax.Hub.Config({
             tex2jax: {
-                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
             }
         });
 
@@ -67,6 +67,8 @@
         var slideshow = remark.create({
             sourceUrl: 'week4.md'
         });
+
+
     </script>
 </body>
 
