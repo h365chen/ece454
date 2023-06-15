@@ -60,3 +60,11 @@ System.out.print(" " + word2.toString());
 // after the first for loop
 System.out.println();
 ```
+
+---
+
+## Question
+
+What are the trade-offs between pair and stripe approaches?
+
+What if we make use of combiners?
