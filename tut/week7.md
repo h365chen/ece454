@@ -29,11 +29,6 @@ tar -xf HadoopWC_distributed_cache.tar # assuming you have the file uploaded on 
 
 ---
 
-If it doesn't work, try modify the Java code following
-https://buhrmann.github.io/hadoop-distributed-cache.html
-
----
-
 To show output
 
 ```bash
@@ -49,6 +44,48 @@ Bear,2
 Deer,2
 River,2
 ```
+
+---
+
+### Named File (File Labels)
+
+This method is much more simpler then specifying the full file path and may also
+avoid issues if file paths are too long (source:
+https://buhrmann.github.io/hadoop-distributed-cache.html)
+
+Assuming the file label is `filelabel`, then inside `main()`
+
+```diff
+-        job.addCacheFile(new Path(otherArgs[2]).toUri());
++        job.addCacheFile(
++                new URI(
++                        new Path(otherArgs[2]) + "#filelabel"
++                )
++        );
+```
+
+---
+
+Then change the `setup` function
+
+```Java
+@Override
+public void setup(Context context) throws IOException, InterruptedException {
+    URI[] cacheFiles = context.getCacheFiles();
+    if (cacheFiles != null && cacheFiles.length > 0)
+    {
+        BufferedReader fis = new BufferedReader(
+                new FileReader("filelabel")
+                // ^ we refer to filelabel directly
+        );
+        String skipWord = null;
+        while ((skipWord = fis.readLine()) != null) {
+            wordsToSkip.add(skipWord);
+        }
+    }
+}
+```
+
 
 ---
 
