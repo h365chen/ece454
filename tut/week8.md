@@ -90,9 +90,9 @@ Question: sequential consistent or causal consistent?
 
 ![:centerwidth 80%](figs/additional_example_1.png)
 
-<!-- --- -->
+---
 
-<!-- ![:centerwidth 60%](figs/additional_example_2.png) -->
+![:centerwidth 80%](figs/additional_example_2.png)
 
 ---
 
