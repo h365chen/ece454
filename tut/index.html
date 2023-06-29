@@ -67,16 +67,24 @@
 
         MathJax.Hub.Configured();
 
-        remark.macros.width = function (width) {
+        remark.macros.centerwidth = function(width, float_position) {
             var url = this;
-            return '<img style="width:' + width + '" src="' + url + '" />';
-        }
+
+            var width_str = "width: " + width + "; ";
+            var margin_left = (100 - Number(width.substring(0, width.indexOf('%')))) / 2 + "%";
+            var margin_left_str = "margin-left: " + margin_left + "; ";
+            var float_position_str = "";
+            if (arguments.length == 2) {
+                float_position_str = "float: " + float_position + "; ";
+            }
+
+            return '<img src="' + url + '" style="' + width_str + margin_left_str + float_position_str + '" />';
+
+        };
 
         var slideshow = remark.create({
-            sourceUrl: 'week7.md'
+            sourceUrl: 'week8.md'
         });
-
-
     </script>
 </body>
 
