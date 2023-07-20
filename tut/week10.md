@@ -94,7 +94,7 @@ Process 2 on host B:
 
 ---
 
-See the example is provided under week10/
+See the example provided under week10/
 
 ```bash
 cp a3_starter/settings.sh double_barrier_example/
