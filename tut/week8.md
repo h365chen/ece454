@@ -39,7 +39,7 @@ A data store is causally consistent when:
 
 Writes related by the "causally precedes" relation must be seen by all processes
 in the same order. Concurrent writes (i.e., ones that are not related by
-“causally precedes”) may be seen in a different order by different processes.
+"causally precedes") may be seen in a different order by different processes.
 
 "Causally precedes" is the transitive closure of two rules:
 1. Op1 causally precedes Op2 if Op1 occurs before Op2 in the same process.
@@ -82,8 +82,6 @@ begins, then Op1 must precede Op2 in the sequential order.
 
 ## Additional Examples
 
-(I will post answers sometime afterwards)
-
 Question: sequential consistent or causal consistent?
 
 ---
@@ -96,6 +94,11 @@ Question: sequential consistent or causal consistent?
 
 ---
 
+Answer: the first one is sequential consistent, and the second one is causal
+consistent.
+
+---
+
 ## Think
 
 Among sequential consistency, causal consistency, and linearizability, which
@@ -103,3 +106,7 @@ property is the strongest and which is the weakest?
 
 (Property A is stronger than property B if every execution that satisfies A also
 satisfies B, and there is some execution that satisfies B but not A.)
+
+## TODO
+
+Explain the above examples step by step, rather than a single image
